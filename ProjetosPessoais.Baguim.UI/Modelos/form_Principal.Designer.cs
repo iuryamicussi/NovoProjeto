@@ -1,6 +1,6 @@
 ﻿namespace ProjetosPessoais.Baguim.UI
 {
-    partial class Form1
+    partial class form_Principal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_Principal));
             this.panel_Geral = new System.Windows.Forms.Panel();
             this.panel_Container = new System.Windows.Forms.Panel();
             this.panel_BarraDeJanelas = new System.Windows.Forms.Panel();
@@ -44,10 +44,17 @@
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_BarraSuperior = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label_Maximizar = new System.Windows.Forms.Label();
             this.label_MinimizarSistema = new System.Windows.Forms.Label();
             this.label_FecharSistema = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel_LogoEMenuLateral = new System.Windows.Forms.Panel();
             this.panel_MenuLateral = new System.Windows.Forms.Panel();
+            this.button_4 = new System.Windows.Forms.Button();
+            this.button_3 = new System.Windows.Forms.Button();
+            this.button_2 = new System.Windows.Forms.Button();
+            this.button_1 = new System.Windows.Forms.Button();
             this.panel_Logo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +62,10 @@
             this.panel_MenuSuperior.SuspendLayout();
             this.menu_Principal.SuspendLayout();
             this.panel_BarraSuperior.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_LogoEMenuLateral.SuspendLayout();
+            this.panel_MenuLateral.SuspendLayout();
             this.panel_Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -127,6 +137,7 @@
             this.minimizarToolStripMenuItem.Name = "minimizarToolStripMenuItem";
             this.minimizarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.minimizarToolStripMenuItem.Text = "Minimizar";
+            this.minimizarToolStripMenuItem.Click += new System.EventHandler(this.minimizarToolStripMenuItem_Click);
             // 
             // fecharToolStripMenuItem
             // 
@@ -167,17 +178,19 @@
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
             this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
+            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
             this.produtosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.produtosToolStripMenuItem.Text = "Produtos";
+            this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
             // panel_BarraSuperior
             // 
-            this.panel_BarraSuperior.Controls.Add(this.label_MinimizarSistema);
-            this.panel_BarraSuperior.Controls.Add(this.label_FecharSistema);
+            this.panel_BarraSuperior.Controls.Add(this.panel1);
+            this.panel_BarraSuperior.Controls.Add(this.pictureBox2);
             this.panel_BarraSuperior.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_BarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.panel_BarraSuperior.Name = "panel_BarraSuperior";
@@ -185,14 +198,38 @@
             this.panel_BarraSuperior.TabIndex = 2;
             this.panel_BarraSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_BarraSuperior_MouseDown);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label_Maximizar);
+            this.panel1.Controls.Add(this.label_MinimizarSistema);
+            this.panel1.Controls.Add(this.label_FecharSistema);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(870, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(97, 28);
+            this.panel1.TabIndex = 3;
+            // 
+            // label_Maximizar
+            // 
+            this.label_Maximizar.AutoSize = true;
+            this.label_Maximizar.Font = new System.Drawing.Font("Wingdings", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label_Maximizar.ForeColor = System.Drawing.Color.Black;
+            this.label_Maximizar.Location = new System.Drawing.Point(33, 5);
+            this.label_Maximizar.Name = "label_Maximizar";
+            this.label_Maximizar.Size = new System.Drawing.Size(28, 21);
+            this.label_Maximizar.TabIndex = 6;
+            this.label_Maximizar.Text = "r";
+            this.label_Maximizar.Click += new System.EventHandler(this.label_Maximizar_Click);
+            // 
             // label_MinimizarSistema
             // 
             this.label_MinimizarSistema.AutoSize = true;
             this.label_MinimizarSistema.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_MinimizarSistema.Location = new System.Drawing.Point(904, 2);
+            this.label_MinimizarSistema.ForeColor = System.Drawing.Color.Black;
+            this.label_MinimizarSistema.Location = new System.Drawing.Point(9, 2);
             this.label_MinimizarSistema.Name = "label_MinimizarSistema";
             this.label_MinimizarSistema.Size = new System.Drawing.Size(21, 25);
-            this.label_MinimizarSistema.TabIndex = 1;
+            this.label_MinimizarSistema.TabIndex = 5;
             this.label_MinimizarSistema.Text = "-";
             this.label_MinimizarSistema.Click += new System.EventHandler(this.label_MinimizarSistema_Click);
             // 
@@ -200,12 +237,23 @@
             // 
             this.label_FecharSistema.AutoSize = true;
             this.label_FecharSistema.Font = new System.Drawing.Font("Segoe UI Symbol", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_FecharSistema.Location = new System.Drawing.Point(934, 2);
+            this.label_FecharSistema.ForeColor = System.Drawing.Color.Black;
+            this.label_FecharSistema.Location = new System.Drawing.Point(63, 2);
             this.label_FecharSistema.Name = "label_FecharSistema";
             this.label_FecharSistema.Size = new System.Drawing.Size(24, 25);
-            this.label_FecharSistema.TabIndex = 0;
+            this.label_FecharSistema.TabIndex = 4;
             this.label_FecharSistema.Text = "X";
             this.label_FecharSistema.Click += new System.EventHandler(this.label_FecharSistema_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 22);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // panel_LogoEMenuLateral
             // 
@@ -220,11 +268,71 @@
             // panel_MenuLateral
             // 
             this.panel_MenuLateral.BackColor = System.Drawing.Color.DarkGray;
+            this.panel_MenuLateral.Controls.Add(this.button_4);
+            this.panel_MenuLateral.Controls.Add(this.button_3);
+            this.panel_MenuLateral.Controls.Add(this.button_2);
+            this.panel_MenuLateral.Controls.Add(this.button_1);
             this.panel_MenuLateral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_MenuLateral.Location = new System.Drawing.Point(0, 69);
             this.panel_MenuLateral.Name = "panel_MenuLateral";
             this.panel_MenuLateral.Size = new System.Drawing.Size(203, 539);
             this.panel_MenuLateral.TabIndex = 2;
+            // 
+            // button_4
+            // 
+            this.button_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_4.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(107)))), ((int)(((byte)(26)))));
+            this.button_4.Location = new System.Drawing.Point(0, 96);
+            this.button_4.Name = "button_4";
+            this.button_4.Size = new System.Drawing.Size(203, 32);
+            this.button_4.TabIndex = 3;
+            this.button_4.Text = "Fornecedores";
+            this.button_4.UseVisualStyleBackColor = false;
+            // 
+            // button_3
+            // 
+            this.button_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_3.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(107)))), ((int)(((byte)(26)))));
+            this.button_3.Location = new System.Drawing.Point(0, 64);
+            this.button_3.Name = "button_3";
+            this.button_3.Size = new System.Drawing.Size(203, 32);
+            this.button_3.TabIndex = 2;
+            this.button_3.Text = "Produtos";
+            this.button_3.UseVisualStyleBackColor = false;
+            // 
+            // button_2
+            // 
+            this.button_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_2.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(107)))), ((int)(((byte)(26)))));
+            this.button_2.Location = new System.Drawing.Point(0, 32);
+            this.button_2.Name = "button_2";
+            this.button_2.Size = new System.Drawing.Size(203, 32);
+            this.button_2.TabIndex = 1;
+            this.button_2.Text = "Receber Nota";
+            this.button_2.UseVisualStyleBackColor = false;
+            // 
+            // button_1
+            // 
+            this.button_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button_1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_1.Font = new System.Drawing.Font("Segoe WP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(107)))), ((int)(((byte)(26)))));
+            this.button_1.Location = new System.Drawing.Point(0, 0);
+            this.button_1.Name = "button_1";
+            this.button_1.Size = new System.Drawing.Size(203, 32);
+            this.button_1.TabIndex = 0;
+            this.button_1.Text = "Emitir Nota";
+            this.button_1.UseVisualStyleBackColor = false;
             // 
             // panel_Logo
             // 
@@ -258,7 +366,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Sistema";
             // 
-            // Form1
+            // form_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -266,8 +374,7 @@
             this.ClientSize = new System.Drawing.Size(1170, 608);
             this.Controls.Add(this.panel_Geral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.IsMdiContainer = true;
-            this.Name = "Form1";
+            this.Name = "form_Principal";
             this.Text = "Form1";
             this.panel_Geral.ResumeLayout(false);
             this.panel_MenuSuperior.ResumeLayout(false);
@@ -275,8 +382,11 @@
             this.menu_Principal.ResumeLayout(false);
             this.menu_Principal.PerformLayout();
             this.panel_BarraSuperior.ResumeLayout(false);
-            this.panel_BarraSuperior.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel_LogoEMenuLateral.ResumeLayout(false);
+            this.panel_MenuLateral.ResumeLayout(false);
             this.panel_Logo.ResumeLayout(false);
             this.panel_Logo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -296,8 +406,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel_BarraSuperior;
-        private System.Windows.Forms.Label label_MinimizarSistema;
-        private System.Windows.Forms.Label label_FecharSistema;
         private System.Windows.Forms.MenuStrip menu_Principal;
         private System.Windows.Forms.ToolStripMenuItem açõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minimizarToolStripMenuItem;
@@ -308,6 +416,15 @@
         private System.Windows.Forms.ToolStripMenuItem grupoDeProdutosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
+        private System.Windows.Forms.Button button_4;
+        private System.Windows.Forms.Button button_3;
+        private System.Windows.Forms.Button button_2;
+        private System.Windows.Forms.Button button_1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label_Maximizar;
+        private System.Windows.Forms.Label label_MinimizarSistema;
+        private System.Windows.Forms.Label label_FecharSistema;
     }
 }
 

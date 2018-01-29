@@ -49,16 +49,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Modelos\form_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Modelos\form_Principal.Designer.cs">
+      <DependentUpon>form_Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\userControl_Container.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modelos\userControl_Container.Designer.cs">
+      <DependentUpon>userControl_Container.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Padroes\CoresPadroes.cs" />
+    <Compile Include="Padroes\INomeAba.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Sistema\userControl_Fornecedores.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sistema\userControl_Fornecedores.Designer.cs">
+      <DependentUpon>userControl_Fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sistema\userControl_Produtos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sistema\userControl_Produtos.Designer.cs">
+      <DependentUpon>userControl_Produtos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Modelos\form_Principal.resx">
+      <DependentUpon>form_Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modelos\userControl_Container.resx">
+      <DependentUpon>userControl_Container.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,6 +92,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sistema\userControl_Fornecedores.resx">
+      <DependentUpon>userControl_Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\userControl_Produtos.resx">
+      <DependentUpon>userControl_Produtos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
