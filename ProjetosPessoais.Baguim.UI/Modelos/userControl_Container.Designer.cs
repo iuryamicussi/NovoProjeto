@@ -33,15 +33,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label_NomeTela = new System.Windows.Forms.Label();
             this.panel_Botoes_Principal = new System.Windows.Forms.Panel();
-            this.panel_Botoes_Espacamento_Esquerda = new System.Windows.Forms.Panel();
-            this.panel_Botoes_Espacamento_Direita = new System.Windows.Forms.Panel();
             this.panel_Botoes = new System.Windows.Forms.Panel();
-            this.button_Incluir = new System.Windows.Forms.Button();
-            this.button_Salvar = new System.Windows.Forms.Button();
-            this.button_Cancelar = new System.Windows.Forms.Button();
-            this.button_Excluir = new System.Windows.Forms.Button();
-            this.button_Pesquisar = new System.Windows.Forms.Button();
             this.button_Imprimir = new System.Windows.Forms.Button();
+            this.button_Pesquisar = new System.Windows.Forms.Button();
+            this.button_Excluir = new System.Windows.Forms.Button();
+            this.button_Cancelar = new System.Windows.Forms.Button();
+            this.button_Salvar = new System.Windows.Forms.Button();
+            this.button_Incluir = new System.Windows.Forms.Button();
+            this.panel_Botoes_Espacamento_Direita = new System.Windows.Forms.Panel();
+            this.panel_Botoes_Espacamento_Esquerda = new System.Windows.Forms.Panel();
             this.panel_Principal.SuspendLayout();
             this.panel_Componentes.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,6 +61,7 @@
             // 
             // panel_Componentes
             // 
+            this.panel_Componentes.AutoScroll = true;
             this.panel_Componentes.Controls.Add(this.panel2);
             this.panel_Componentes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Componentes.Location = new System.Drawing.Point(0, 0);
@@ -98,22 +99,6 @@
             this.panel_Botoes_Principal.Size = new System.Drawing.Size(967, 53);
             this.panel_Botoes_Principal.TabIndex = 0;
             // 
-            // panel_Botoes_Espacamento_Esquerda
-            // 
-            this.panel_Botoes_Espacamento_Esquerda.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel_Botoes_Espacamento_Esquerda.Location = new System.Drawing.Point(0, 0);
-            this.panel_Botoes_Espacamento_Esquerda.Name = "panel_Botoes_Espacamento_Esquerda";
-            this.panel_Botoes_Espacamento_Esquerda.Size = new System.Drawing.Size(29, 53);
-            this.panel_Botoes_Espacamento_Esquerda.TabIndex = 0;
-            // 
-            // panel_Botoes_Espacamento_Direita
-            // 
-            this.panel_Botoes_Espacamento_Direita.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_Botoes_Espacamento_Direita.Location = new System.Drawing.Point(938, 0);
-            this.panel_Botoes_Espacamento_Direita.Name = "panel_Botoes_Espacamento_Direita";
-            this.panel_Botoes_Espacamento_Direita.Size = new System.Drawing.Size(29, 53);
-            this.panel_Botoes_Espacamento_Direita.TabIndex = 1;
-            // 
             // panel_Botoes
             // 
             this.panel_Botoes.Controls.Add(this.button_Imprimir);
@@ -128,49 +113,16 @@
             this.panel_Botoes.Size = new System.Drawing.Size(909, 53);
             this.panel_Botoes.TabIndex = 2;
             // 
-            // button_Incluir
+            // button_Imprimir
             // 
-            this.button_Incluir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Incluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Incluir.Location = new System.Drawing.Point(0, 0);
-            this.button_Incluir.Name = "button_Incluir";
-            this.button_Incluir.Size = new System.Drawing.Size(141, 53);
-            this.button_Incluir.TabIndex = 0;
-            this.button_Incluir.Text = "Incluir";
-            this.button_Incluir.UseVisualStyleBackColor = true;
-            // 
-            // button_Salvar
-            // 
-            this.button_Salvar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Salvar.Location = new System.Drawing.Point(141, 0);
-            this.button_Salvar.Name = "button_Salvar";
-            this.button_Salvar.Size = new System.Drawing.Size(141, 53);
-            this.button_Salvar.TabIndex = 1;
-            this.button_Salvar.Text = "Salvar";
-            this.button_Salvar.UseVisualStyleBackColor = true;
-            // 
-            // button_Cancelar
-            // 
-            this.button_Cancelar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Cancelar.Location = new System.Drawing.Point(282, 0);
-            this.button_Cancelar.Name = "button_Cancelar";
-            this.button_Cancelar.Size = new System.Drawing.Size(141, 53);
-            this.button_Cancelar.TabIndex = 2;
-            this.button_Cancelar.Text = "Cancelar";
-            this.button_Cancelar.UseVisualStyleBackColor = true;
-            // 
-            // button_Excluir
-            // 
-            this.button_Excluir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Excluir.Location = new System.Drawing.Point(423, 0);
-            this.button_Excluir.Name = "button_Excluir";
-            this.button_Excluir.Size = new System.Drawing.Size(141, 53);
-            this.button_Excluir.TabIndex = 3;
-            this.button_Excluir.Text = "Excluir";
-            this.button_Excluir.UseVisualStyleBackColor = true;
+            this.button_Imprimir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Imprimir.Location = new System.Drawing.Point(705, 0);
+            this.button_Imprimir.Name = "button_Imprimir";
+            this.button_Imprimir.Size = new System.Drawing.Size(141, 53);
+            this.button_Imprimir.TabIndex = 5;
+            this.button_Imprimir.Text = "Imprimir";
+            this.button_Imprimir.UseVisualStyleBackColor = true;
             // 
             // button_Pesquisar
             // 
@@ -183,16 +135,65 @@
             this.button_Pesquisar.Text = "Pesquisar";
             this.button_Pesquisar.UseVisualStyleBackColor = true;
             // 
-            // button_Imprimir
+            // button_Excluir
             // 
-            this.button_Imprimir.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Imprimir.Location = new System.Drawing.Point(705, 0);
-            this.button_Imprimir.Name = "button_Imprimir";
-            this.button_Imprimir.Size = new System.Drawing.Size(141, 53);
-            this.button_Imprimir.TabIndex = 5;
-            this.button_Imprimir.Text = "Imprimir";
-            this.button_Imprimir.UseVisualStyleBackColor = true;
+            this.button_Excluir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Excluir.Location = new System.Drawing.Point(423, 0);
+            this.button_Excluir.Name = "button_Excluir";
+            this.button_Excluir.Size = new System.Drawing.Size(141, 53);
+            this.button_Excluir.TabIndex = 3;
+            this.button_Excluir.Text = "Excluir";
+            this.button_Excluir.UseVisualStyleBackColor = true;
+            // 
+            // button_Cancelar
+            // 
+            this.button_Cancelar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Cancelar.Location = new System.Drawing.Point(282, 0);
+            this.button_Cancelar.Name = "button_Cancelar";
+            this.button_Cancelar.Size = new System.Drawing.Size(141, 53);
+            this.button_Cancelar.TabIndex = 2;
+            this.button_Cancelar.Text = "Cancelar";
+            this.button_Cancelar.UseVisualStyleBackColor = true;
+            // 
+            // button_Salvar
+            // 
+            this.button_Salvar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Salvar.Location = new System.Drawing.Point(141, 0);
+            this.button_Salvar.Name = "button_Salvar";
+            this.button_Salvar.Size = new System.Drawing.Size(141, 53);
+            this.button_Salvar.TabIndex = 1;
+            this.button_Salvar.Text = "Salvar";
+            this.button_Salvar.UseVisualStyleBackColor = true;
+            // 
+            // button_Incluir
+            // 
+            this.button_Incluir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Incluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Incluir.Location = new System.Drawing.Point(0, 0);
+            this.button_Incluir.Name = "button_Incluir";
+            this.button_Incluir.Size = new System.Drawing.Size(141, 53);
+            this.button_Incluir.TabIndex = 0;
+            this.button_Incluir.Text = "Incluir";
+            this.button_Incluir.UseVisualStyleBackColor = true;
+            // 
+            // panel_Botoes_Espacamento_Direita
+            // 
+            this.panel_Botoes_Espacamento_Direita.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel_Botoes_Espacamento_Direita.Location = new System.Drawing.Point(938, 0);
+            this.panel_Botoes_Espacamento_Direita.Name = "panel_Botoes_Espacamento_Direita";
+            this.panel_Botoes_Espacamento_Direita.Size = new System.Drawing.Size(29, 53);
+            this.panel_Botoes_Espacamento_Direita.TabIndex = 1;
+            // 
+            // panel_Botoes_Espacamento_Esquerda
+            // 
+            this.panel_Botoes_Espacamento_Esquerda.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel_Botoes_Espacamento_Esquerda.Location = new System.Drawing.Point(0, 0);
+            this.panel_Botoes_Espacamento_Esquerda.Name = "panel_Botoes_Espacamento_Esquerda";
+            this.panel_Botoes_Espacamento_Esquerda.Size = new System.Drawing.Size(29, 53);
+            this.panel_Botoes_Espacamento_Esquerda.TabIndex = 0;
             // 
             // userControl_Container
             // 
