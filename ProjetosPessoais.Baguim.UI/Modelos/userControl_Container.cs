@@ -18,7 +18,7 @@ namespace ProjetosPessoais.Baguim.UI.Modelos
             InitializeComponent();
         }
 
-        public string NomeCompleto => "Default";
-        public string NomeReduzido => "Default";
+        public virtual string NomeCompleto => "Default";
+        public virtual string NomeReduzido => "Default";
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_Principal));
             this.panel_Geral = new System.Windows.Forms.Panel();
             this.panel_Container = new System.Windows.Forms.Panel();
@@ -58,6 +59,7 @@
             this.panel_Logo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip_Principal = new System.Windows.Forms.ToolTip(this.components);
             this.panel_Geral.SuspendLayout();
             this.panel_MenuSuperior.SuspendLayout();
             this.menu_Principal.SuspendLayout();
@@ -425,6 +427,7 @@
         private System.Windows.Forms.Label label_Maximizar;
         private System.Windows.Forms.Label label_MinimizarSistema;
         private System.Windows.Forms.Label label_FecharSistema;
+        private System.Windows.Forms.ToolTip toolTip_Principal;
     }
 }
 

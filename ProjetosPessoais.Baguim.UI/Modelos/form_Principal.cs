@@ -1,4 +1,5 @@
-﻿using ProjetosPessoais.Baguim.UI.Padroes;
+﻿using ProjetosPessoais.Baguim.UI.Modelos;
+using ProjetosPessoais.Baguim.UI.Padroes;
 using ProjetosPessoais.Baguim.UI.Sistema;
 using ProjetosPessoais.Baguim.UI.WindowsUtil;
 using System;
@@ -16,7 +17,7 @@ namespace ProjetosPessoais.Baguim.UI
 {
     public partial class form_Principal : Form
     {
-        private int numeroDeJanelas = 0;
+        private CoresPadroes cores = new CoresPadroes();
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -34,8 +35,6 @@ namespace ProjetosPessoais.Baguim.UI
 
         private void Configurar_Layout()
         {
-            var cores = new CoresPadroes();
-
             foreach (var control in panel_MenuLateral.Controls)
             {
                 if(control is Button)
@@ -96,10 +95,8 @@ namespace ProjetosPessoais.Baguim.UI
 
         private void AbrirJanela(Type controle)
         {
-            
             var janelaJaEstaAberta = false;
 
-            //Implementar Validações --
             foreach (var control in panel_Container.Controls)
             {
                 if (control.GetType() == controle)
@@ -108,27 +105,67 @@ namespace ProjetosPessoais.Baguim.UI
                     break;
                 }
             }
-            //-------------------------
 
-
-            //Implementar Construção/Alteração na Guia de Tabs --
-            if(!(janelaJaEstaAberta))
-            {
-                var novaAba = new Button();
-                novaAba.Name = "aba_" + numeroDeJanelas++ ;
-                novaAba.Dock = DockStyle.Left;
-                //var lala = controle.GetProperty("NomeReduzido");
-                novaAba.Text = controle.GetProperty("NomeReduzido").ToString();
-                panel_BarraDeJanelas.Controls.Add(novaAba);
-            }
-            //-------------------------
-
-
-            //Abrir Janela ------------
             if(!janelaJaEstaAberta)
-                panel_Container.Controls.Add((Control)Activator.CreateInstance(controle));
+            {
+                var novoContainer = (userControl_Container)Activator.CreateInstance(controle);
+                panel_Container.Controls.Add(novoContainer);
+                AbrirAba(novoContainer);
+            }
             panel_Container.Controls[controle.Name].BringToFront();
-            //-------------------------
+        }
+
+        private void AbrirAba(userControl_Container novoContainer)
+        {
+            //Botão da Aba----------------------------------------------
+            var button_Aba = new Button();
+            button_Aba.Name = novoContainer.Name;
+            button_Aba.Dock = DockStyle.Left;
+            button_Aba.FlatStyle = FlatStyle.Flat;
+            button_Aba.AutoSize = true;
+            button_Aba.MaximumSize = new Size(150, 40);
+            button_Aba.MinimumSize = new Size(100, 25);
+            button_Aba.Font = new Font("Segoe WP", 8f, FontStyle.Bold);
+            button_Aba.Text = novoContainer.NomeReduzido;
+            toolTip_Principal.SetToolTip(button_Aba, novoContainer.NomeCompleto);
+            button_Aba.ForeColor = cores.Botoes[CorDo.OnHoverForeColor];
+            button_Aba.OnHover(button_Aba.BackColor, cores.Botoes[CorDo.OnHover], cores.Botoes[CorDo.OnHoverForeColor]);
+            //----------------------------------------------------------
+
+            //Botão de Fechar a Aba-------------------------------------
+            var label_FecharAba = new Label();
+            label_FecharAba.Name = novoContainer.Name;
+            label_FecharAba.Left = button_Aba.Width - 13;
+            label_FecharAba.Top = button_Aba.Bounds.Top +2;
+            label_FecharAba.Width = 11;
+            label_FecharAba.Height = 13;
+            label_FecharAba.FlatStyle = FlatStyle.Flat;
+            label_FecharAba.Font = new Font("Segoe WP", 6f, FontStyle.Bold);
+            label_FecharAba.TextAlign = ContentAlignment.TopRight;
+            label_FecharAba.Text = "X";
+            label_FecharAba.BackColor = button_Aba.BackColor;
+            label_FecharAba.ForeColor = button_Aba.ForeColor;
+            label_FecharAba.OnHover(label_FecharAba.BackColor, cores.Botoes[CorDo.OnHover], cores.Botoes[CorDo.OnHoverForeColor]);
+            toolTip_Principal.SetToolTip(label_FecharAba, $"Fechar - {button_Aba.Text}");
+            label_FecharAba.Click += (sender,EvenArgs) => Label_FecharAba_Click(sender,EvenArgs, novoContainer);
+            button_Aba.Controls.Add(label_FecharAba);
+            //----------------------------------------------------------
+
+            panel_BarraDeJanelas.Controls.Add(button_Aba);
+        }
+
+        private void Label_FecharAba_Click(object sender, EventArgs e, userControl_Container container)
+        {
+            FecharJanela(container);
+        }
+
+        private void FecharJanela(userControl_Container container)
+        {
+            //Validações ...
+
+            //--------------
+            panel_Container.Controls[container.Name].Dispose();
+            panel_BarraDeJanelas.Controls[container.Name].Dispose();
         }
 
         private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)

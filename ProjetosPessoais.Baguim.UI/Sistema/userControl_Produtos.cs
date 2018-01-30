@@ -19,7 +19,7 @@ namespace ProjetosPessoais.Baguim.UI.Sistema
             InitializeComponent();
         }
 
-        public static new string NomeCompleto => "Cadastro de Produtos";
-        public static new string NomeReduzido => "Produtos";
+        public override string NomeCompleto => "Cadastro de Produtos";
+        public override string NomeReduzido => "Produtos";
     }
 }

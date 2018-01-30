@@ -18,7 +18,7 @@ namespace ProjetosPessoais.Baguim.UI.Sistema
             InitializeComponent();
         }
 
-        public new string NomeCompleto => "Cadastro de Fornecedores";
-        public new string NomeReduzido => "Fornecedores";
+        public override string NomeCompleto => "Cadastro de Fornecedores";
+        public override string NomeReduzido => "Fornecedores";
     }
 }
