@@ -27,6 +27,8 @@ namespace ProjetosPessoais.Baguim.UI.Modelos
             Aplicar_Espacamento_Panel_Botoes();
             foreach (var botao in listaDeBotoes)
                 botao.VisibleChanged += (sender, EventArgs) => Aplicar_Espacamento_Panel_Botoes();
+
+            panel_Principal.SizeChanged += (sender, EventArgs) => Aplicar_Espacamento_Panel_Botoes();
         }
 
         private void Aplicar_Espacamento_Panel_Botoes() =>

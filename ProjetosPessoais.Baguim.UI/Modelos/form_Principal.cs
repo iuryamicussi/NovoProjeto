@@ -82,6 +82,7 @@ namespace ProjetosPessoais.Baguim.UI
             {
                 var novoContainer = (userControl_Container)Activator.CreateInstance(controle);
                 panel_Container.Controls.Add(novoContainer);
+                novoContainer.Dock = DockStyle.Fill;
                 AbrirAba(novoContainer);
                 novoContainer = null;
             }

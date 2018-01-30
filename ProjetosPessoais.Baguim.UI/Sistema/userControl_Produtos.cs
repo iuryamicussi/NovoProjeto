@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjetosPessoais.Baguim.UI.Modelos;
-using ProjetosPessoais.Baguim.UI.Padroes;
 
 namespace ProjetosPessoais.Baguim.UI.Sistema
 {
@@ -17,6 +16,7 @@ namespace ProjetosPessoais.Baguim.UI.Sistema
         public userControl_Produtos()
         {
             InitializeComponent();
+            button_Imprimir.Visible = false;
         }
 
         public override string NomeCompleto => "Cadastro de Produtos";

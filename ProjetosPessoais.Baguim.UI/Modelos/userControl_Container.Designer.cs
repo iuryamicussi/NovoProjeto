@@ -80,7 +80,8 @@
             // label_NomeTela
             // 
             this.label_NomeTela.AutoSize = true;
-            this.label_NomeTela.Location = new System.Drawing.Point(272, 0);
+            this.label_NomeTela.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_NomeTela.Location = new System.Drawing.Point(926, 0);
             this.label_NomeTela.Name = "label_NomeTela";
             this.label_NomeTela.Size = new System.Drawing.Size(41, 13);
             this.label_NomeTela.TabIndex = 0;
@@ -214,7 +215,6 @@
 
         private System.Windows.Forms.Panel panel_Principal;
         private System.Windows.Forms.Panel panel_Botoes_Principal;
-        private System.Windows.Forms.Panel panel_Componentes;
         private System.Windows.Forms.Panel panel2;
         protected System.Windows.Forms.Label label_NomeTela;
         private System.Windows.Forms.Panel panel_Botoes_Espacamento_Direita;
@@ -226,5 +226,6 @@
         protected System.Windows.Forms.Button button_Cancelar;
         protected System.Windows.Forms.Button button_Salvar;
         protected System.Windows.Forms.Button button_Incluir;
+        protected System.Windows.Forms.Panel panel_Componentes;
     }
 }

@@ -16,7 +16,9 @@ namespace ProjetosPessoais.Baguim.UI.Sistema
         public userControl_Grupo_Produtos()
         {
             InitializeComponent();
-            button_Excluir.Visible = false;
+            //button_Excluir.Visible = false;
+            panel_Componentes.AutoScroll = true;
+            panel_Componentes.Controls.Add(new Button() { Location = new Point(350, 1100),Text = "XABLAU" });
         }
 
         public override string NomeCompleto => "Cadastro de Grupos de Produtos";
