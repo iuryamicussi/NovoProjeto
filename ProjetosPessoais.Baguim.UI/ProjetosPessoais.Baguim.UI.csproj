@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MetroFramework">
-      <HintPath>..\..\..\MetroDashboard\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,6 +68,12 @@
     <Compile Include="Sistema\userControl_Fornecedores.Designer.cs">
       <DependentUpon>userControl_Fornecedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sistema\userControl_Grupo_Produtos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sistema\userControl_Grupo_Produtos.Designer.cs">
+      <DependentUpon>userControl_Grupo_Produtos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sistema\userControl_Produtos.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +97,9 @@
     </Compile>
     <EmbeddedResource Include="Sistema\userControl_Fornecedores.resx">
       <DependentUpon>userControl_Fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sistema\userControl_Grupo_Produtos.resx">
+      <DependentUpon>userControl_Grupo_Produtos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sistema\userControl_Produtos.resx">
       <DependentUpon>userControl_Produtos.cs</DependentUpon>

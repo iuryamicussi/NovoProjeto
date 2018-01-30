@@ -174,6 +174,7 @@
             this.grupoDeProdutosToolStripMenuItem.Name = "grupoDeProdutosToolStripMenuItem";
             this.grupoDeProdutosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.grupoDeProdutosToolStripMenuItem.Text = "Grupo de Produtos";
+            this.grupoDeProdutosToolStripMenuItem.Click += new System.EventHandler(this.grupoDeProdutosToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 

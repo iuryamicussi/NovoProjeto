@@ -8,7 +8,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,14 +17,6 @@ namespace ProjetosPessoais.Baguim.UI
     public partial class form_Principal : Form
     {
         private CoresPadroes cores = new CoresPadroes();
-
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImportAttribute("user32.dll")]
-        public static extern bool ReleaseCapture();
 
         public form_Principal()
         {
@@ -59,39 +50,20 @@ namespace ProjetosPessoais.Baguim.UI
             }
         }
 
-        private void label_MinimizarSistema_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        private void label_MinimizarSistema_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
 
         private void panel_BarraSuperior_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+                NativeUtils.MovimentarForm(Handle);
         }
 
-        private void label_FecharSistema_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
-        }
+        private void label_FecharSistema_Click(object sender, EventArgs e) => Environment.Exit(0);
 
-        private void minimizarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            label_MinimizarSistema_Click(sender, e);
-        }
+        private void minimizarToolStripMenuItem_Click(object sender, EventArgs e) => label_MinimizarSistema_Click(sender, e);
 
-        private void label_Maximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirJanela(typeof(userControl_Produtos));
-        }
+        private void label_Maximizar_Click(object sender, EventArgs e) =>
+            WindowState = WindowState == FormWindowState.Maximized ? FormWindowState.Normal : FormWindowState.Maximized;
 
         private void AbrirJanela(Type controle)
         {
@@ -111,35 +83,40 @@ namespace ProjetosPessoais.Baguim.UI
                 var novoContainer = (userControl_Container)Activator.CreateInstance(controle);
                 panel_Container.Controls.Add(novoContainer);
                 AbrirAba(novoContainer);
+                novoContainer = null;
             }
             panel_Container.Controls[controle.Name].BringToFront();
         }
 
-        private void AbrirAba(userControl_Container novoContainer)
+        private void AbrirAba(userControl_Container container)
         {
             //Botão da Aba----------------------------------------------
             var button_Aba = new Button();
-            button_Aba.Name = novoContainer.Name;
+            button_Aba.Name = container.Name;
             button_Aba.Dock = DockStyle.Left;
             button_Aba.FlatStyle = FlatStyle.Flat;
             button_Aba.AutoSize = true;
             button_Aba.MaximumSize = new Size(150, 40);
             button_Aba.MinimumSize = new Size(100, 25);
             button_Aba.Font = new Font("Segoe WP", 8f, FontStyle.Bold);
-            button_Aba.Text = novoContainer.NomeReduzido;
-            toolTip_Principal.SetToolTip(button_Aba, novoContainer.NomeCompleto);
+            button_Aba.Text = container.NomeReduzido;
+            toolTip_Principal.SetToolTip(button_Aba, container.NomeCompleto);
             button_Aba.ForeColor = cores.Botoes[CorDo.OnHoverForeColor];
             button_Aba.OnHover(button_Aba.BackColor, cores.Botoes[CorDo.OnHover], cores.Botoes[CorDo.OnHoverForeColor]);
-            button_Aba.Click += (sender, EvenArgs) => Button_Aba_Click(sender, EvenArgs, novoContainer);
+            button_Aba.Click += (sender, EvenArgs) => SelecionarJanela(container.Name);
+
+            var contextMenuStrip_Aba = new ContextMenuStrip();
+            contextMenuStrip_Aba.Items.Add("Fechar");
+            contextMenuStrip_Aba.Items[0].Click += (sender, EventArgs) => FecharJanela(container.Name);
+            button_Aba.ContextMenuStrip = contextMenuStrip_Aba;
             //----------------------------------------------------------
 
             //Botão de Fechar a Aba-------------------------------------
             var label_FecharAba = new Label();
-            label_FecharAba.Name = novoContainer.Name;
-            label_FecharAba.Left = button_Aba.Width - 13;
+            label_FecharAba.Name = container.Name;
             label_FecharAba.Top = button_Aba.Bounds.Top +2;
             label_FecharAba.Width = 11;
-            label_FecharAba.Height = 13;
+            label_FecharAba.Height = 11;
             label_FecharAba.FlatStyle = FlatStyle.Flat;
             label_FecharAba.Font = new Font("Segoe WP", 6f, FontStyle.Bold);
             label_FecharAba.TextAlign = ContentAlignment.TopRight;
@@ -148,40 +125,34 @@ namespace ProjetosPessoais.Baguim.UI
             label_FecharAba.ForeColor = button_Aba.ForeColor;
             label_FecharAba.OnHover(label_FecharAba.BackColor, cores.Botoes[CorDo.OnHover], cores.Botoes[CorDo.OnHoverForeColor]);
             toolTip_Principal.SetToolTip(label_FecharAba, $"Fechar - {button_Aba.Text}");
-            label_FecharAba.Click += (sender,EvenArgs) => Label_FecharAba_Click(sender,EvenArgs, novoContainer);
+            label_FecharAba.Click += (sender,EvenArgs) => FecharJanela(container.Name);
             button_Aba.Controls.Add(label_FecharAba);
             //----------------------------------------------------------
 
             panel_BarraDeJanelas.Controls.Add(button_Aba);
+            label_FecharAba.Left = button_Aba.Width - 13;
+            button_Aba = null;
+            label_FecharAba = null;
         }
 
-        private void Button_Aba_Click(object sender, EventArgs evenArgs, userControl_Container container)
-        {
-            SelecionarJanela(container);
-        }
+        private void SelecionarJanela(string container) => panel_Container.Controls[container].BringToFront();
 
-        private void SelecionarJanela(userControl_Container container)
-        {
-            panel_Container.Controls[container.Name].BringToFront();
-        }
-
-        private void Label_FecharAba_Click(object sender, EventArgs e, userControl_Container container)
-        {
-            FecharJanela(container);
-        }
-
-        private void FecharJanela(userControl_Container container)
+        private void FecharJanela(string container)
         {
             //Validações ...
-
+            //registro em edição,etc ..
             //--------------
-            panel_Container.Controls[container.Name].Dispose();
-            panel_BarraDeJanelas.Controls[container.Name].Dispose();
+            panel_Container.Controls[container].Dispose();
+            panel_BarraDeJanelas.Controls[container].Dispose();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
         }
 
-        private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AbrirJanela(typeof(userControl_Fornecedores));
-        }
+        private void produtosToolStripMenuItem_Click(object sender, EventArgs e) => AbrirJanela(typeof(userControl_Produtos));
+
+        private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e) => AbrirJanela(typeof(userControl_Fornecedores));
+
+        private void grupoDeProdutosToolStripMenuItem_Click(object sender, EventArgs e) => AbrirJanela(typeof(userControl_Grupo_Produtos));
     }
 }
