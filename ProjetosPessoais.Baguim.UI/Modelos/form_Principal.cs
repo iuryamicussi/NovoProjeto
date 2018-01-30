@@ -130,6 +130,7 @@ namespace ProjetosPessoais.Baguim.UI
             toolTip_Principal.SetToolTip(button_Aba, novoContainer.NomeCompleto);
             button_Aba.ForeColor = cores.Botoes[CorDo.OnHoverForeColor];
             button_Aba.OnHover(button_Aba.BackColor, cores.Botoes[CorDo.OnHover], cores.Botoes[CorDo.OnHoverForeColor]);
+            button_Aba.Click += (sender, EvenArgs) => Button_Aba_Click(sender, EvenArgs, novoContainer);
             //----------------------------------------------------------
 
             //Botão de Fechar a Aba-------------------------------------
@@ -152,6 +153,16 @@ namespace ProjetosPessoais.Baguim.UI
             //----------------------------------------------------------
 
             panel_BarraDeJanelas.Controls.Add(button_Aba);
+        }
+
+        private void Button_Aba_Click(object sender, EventArgs evenArgs, userControl_Container container)
+        {
+            SelecionarJanela(container);
+        }
+
+        private void SelecionarJanela(userControl_Container container)
+        {
+            panel_Container.Controls[container.Name].BringToFront();
         }
 
         private void Label_FecharAba_Click(object sender, EventArgs e, userControl_Container container)
