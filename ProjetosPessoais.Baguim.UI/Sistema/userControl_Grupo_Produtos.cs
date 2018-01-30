@@ -16,6 +16,7 @@ namespace ProjetosPessoais.Baguim.UI.Sistema
         public userControl_Grupo_Produtos()
         {
             InitializeComponent();
+            button_Excluir.Visible = false;
         }
 
         public override string NomeCompleto => "Cadastro de Grupos de Produtos";
